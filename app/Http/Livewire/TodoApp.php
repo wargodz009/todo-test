@@ -13,7 +13,7 @@ class TodoApp extends Component
 
     public function render()
     {
-        $allTodo = Todo::where('user_id',auth()->user()->id)->get();
+        $allTodo = Todo::where('user_id',auth()->user()->id)->orderBy('id','desc')->get();
         return view('livewire.todo-app',[
             'todos' => $allTodo
         ]);
